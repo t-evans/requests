@@ -1,0 +1,13 @@
+In version 1.1 of the python-requests module, session pickleability was broken, requiring
+us to continually (and unnecessarily) create new sessions, which is really slow.
+
+This is forked from https://github.com/darjus-amzn/requests.git, which restores pickleability.
+
+In addition, this adds 'trust_env' and 'stream' to the __attrs__ property of the session.Session
+class.
+
+I suppose this fork probably won't be needed forever. If a future release of the requests
+module fixes the pickling problem, then we can probably nuke this.
+
+
+This is (currently) used by the session caching part of fluidsurveys.py.
